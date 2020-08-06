@@ -10,10 +10,11 @@ export const getUsers = (req, res) => {
 
 export const createUser = (req, res) => {   
     const user = req.body;
-
-    users.push({...user, id: uuid()});
-    
+    var object = {...user, id: uuid()};
+    users.push(object);
     console.log(`User [${user.username}] added to the database.`);
+    res.status(200).json(object);
+
 };
 
 export const getUser = (req, res) => {
